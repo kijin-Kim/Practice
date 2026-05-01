@@ -1,0 +1,15 @@
+
+.idea/
+.vs/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+*.slnx
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+x64/
