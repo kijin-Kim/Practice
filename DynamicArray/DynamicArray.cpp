@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <ostream>
+#include "../Common.h"
 
 template<class T>
 class DynamicArray final
@@ -368,59 +369,41 @@ private:
 #define DYNAMIC_ARRAY_TYPE DynamicArray
 
 
-template<typename T>
-void PrintArray(const DYNAMIC_ARRAY_TYPE<T>& a, const std::string& prefix = "")
-{
-	if (!prefix.empty())
-	{
-		std::cout << "\t" << prefix << std::endl;
-	}
-
-	std::cout << "\t";
-	for (int i = 0; i < a.size(); ++i)
-	{
-		std::cout << std::boolalpha << a[i] << " ";
-	}
-	std::cout << std::endl;
-	std::cout << std::endl;
-}
-
-
 void TestInt()
 {
 	DYNAMIC_ARRAY_TYPE<int> a(2);
 	a[0] = 1;
 	a[1] = 2;
 	std::cout << "Initialize elements " << std::endl;
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 	DYNAMIC_ARRAY_TYPE<int> b(0);
 	b = a;
 	std::cout << "Deep Copy" << std::endl;
-	PrintArray(b, "Array [B]");
+	Print(b, "Array [B]");
 
 
 
 	a.push_back(4);
 	a.push_back(5);
 	std::cout << "push_back(4), push_back(5) " << std::endl;
-	PrintArray(a, "Array [A]");
-	PrintArray(b, "Array [b]");
+	Print(a, "Array [A]");
+	Print(b, "Array [b]");
 
 
 	std::cout << "insert(a.begin() + 2, 3) " << std::endl;
 	a.insert(a.begin() + 2, 3);
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 
 	std::cout << "erase(a.begin() + 2) " << std::endl;
 	a.erase(a.begin() + 2);
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 
 	a.resize(2);
 	std::cout << "a.resize(2)" << std::endl;
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 }
 
@@ -436,12 +419,12 @@ void TestBool()
 	a[6] = true;
 	a[7] = true;
 	std::cout << "Initialize elements " << std::endl;
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 
 	std::cout << "Deep Copy" << std::endl;
 	DYNAMIC_ARRAY_TYPE<bool> b = a;
-	PrintArray(b, "Array [b]");
+	Print(b, "Array [b]");
 
 
 	a.push_back(false);
@@ -450,26 +433,26 @@ void TestBool()
 	a.push_back(true);
 
 	std::cout << "push_back(false), push_back(true), push_back(true), push_back(true) " << std::endl;
-	PrintArray(a, "Array [A]");
-	PrintArray(b, "Array [b]");
+	Print(a, "Array [A]");
+	Print(b, "Array [b]");
 
 
 	std::cout << "insert(a.begin() + 2, true) " << std::endl;
 	a.insert(a.begin() + 2, false);
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 
 	std::cout << "erase(a.begin() + 2) " << std::endl;
 	a.erase(a.begin() + 2);
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 	a.resize(15);
 	std::cout << "a.resize(15)" << std::endl;
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 
 	a.resize(2);
 	std::cout << "a.resize(2)" << std::endl;
-	PrintArray(a, "Array [A]");
+	Print(a, "Array [A]");
 }
 
 
