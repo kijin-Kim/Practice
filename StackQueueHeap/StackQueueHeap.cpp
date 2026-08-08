@@ -124,5 +124,4 @@ int main()
 		{ 10, 10, 10, 10, 10 },   // 각 push 직후 top
 		{ 10, 20, 30, 40, 50 }    // pop되는 순서
 	);
-	auto a = std::greater<int>();
 }
